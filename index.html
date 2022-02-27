@@ -8,8 +8,23 @@
 </head>
 <body>
     <script>
+        
 
+        function computerPlay() {
+            let selection = Math.floor(Math.random() * 3) + 1;
+            if (selection === 1){
+                selection = "Rock";
+            } else if (selection === 2){
+                selection = "Paper";
+            } else if (selection === 3){
+                selection = "Scissors";
+            }
+            return selection;
+        }
 
+        console.log(computerPlay(0));
+        console.log(computerPlay(0));
+        console.log(computerPlay(0));
     </script>
 </body>
 </html>
