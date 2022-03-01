@@ -8,11 +8,8 @@
 </head>
 <body>
     <script>
-        //input from user R/P/S
-        //apply to all lowercase
-        //store as playerSelection
-        //run playerSelection against computerSelection
-        //print to console a string "Paper beats Rock"
+        let playerScore = 0;
+        let computerScore = 0;
         
         //Returns Rock/Paper/Scissors randomly
         function computerPlay() {
@@ -26,31 +23,43 @@
             }
             return selection;
         }
-
+        
+        //Takes inputs and plays round of R/P/S and returns result
         function playRound(player, computer) {
-            if (player === "rock" && computer === "paper"){
-                return "Rock beats paper!";
+            if (player === "rock" && computer === "scissors"){
+                playerScore++;
+                return "You win, Rock beats Paper!";
             } else if (player === "paper" && computer === "rock"){
-                return "Paper beats Rock!";
+                playerScore++;
+                return "You win, Paper beats Rock!";
             } else if (player === "scissors" && computer === "paper"){
-                return "Scissors beats Paper!";
+                playerScore++;
+                return "You win, Scissors beats Paper!";
             } else if (computer === "rock" && player === "paper"){
-                return "Rock beats paper!";
-            } else if (computer === "paper" && player=== "rock"){
-                return "Paper beats Rock!";
+                computerScore++;
+                return "Computer wins, Rock beats paper!";
+            } else if (computer === "paper" && player === "rock"){
+                computerScore++;
+                return "Computer wins, Paper beats Rock!";
             } else if (computer === "scissors" && player === "paper"){
-                return "Scissors beats Paper!";
+                computerScore++;
+                return "Computer wins, Scissors beats Paper!";
             } else if (player === computer){
                 return "It's a tie!";
             }
         }
+        
 
-        playerSelection = window.prompt("Enter your choice: Rock, Paper, or Scissors.");
-        playerSelection = playerSelection.toLowerCase();
+        for (i= 0; i < 5; i++) {
+            playerSelection = window.prompt("Enter your choice: Rock, Paper, or Scissors.");
+            playerSelection = playerSelection.toLowerCase();
 
-        let playGame = playRound(playerSelection, computerPlay());
-
-        console.log(playGame);
+            let playGame = playRound(playerSelection, computerPlay());
+            console.log(playGame);
+            console.log("Player: " + playerScore + " Computer: " + computerScore);
+            
+        }
+        
     </script>
 </body>
 </html>
