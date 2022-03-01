@@ -11,7 +11,7 @@
         let playerScore = 0;
         let computerScore = 0;
         
-        //Returns Rock/Paper/Scissors randomly
+        //Returns Rock/Paper/Scissors randomly for the computer
         function computerPlay() {
             let selection = Math.floor(Math.random() * 3) + 1;
             if (selection === 1){
@@ -24,7 +24,7 @@
             return selection;
         }
         
-        //Takes inputs and plays round of R/P/S and returns result
+        //Takes inputs and plays a round of R/P/S and returns result, adds to player or computer score
         function playRound(player, computer) {
             if (player === "rock" && computer === "scissors"){
                 playerScore++;
@@ -49,7 +49,7 @@
             }
         }
         
-
+        //Plays 5 rounds of R/P/S prompting player for input
         for (i= 0; i < 5; i++) {
             playerSelection = window.prompt("Enter your choice: Rock, Paper, or Scissors.");
             playerSelection = playerSelection.toLowerCase();
@@ -57,8 +57,17 @@
             let playGame = playRound(playerSelection, computerPlay());
             console.log(playGame);
             console.log("Player: " + playerScore + " Computer: " + computerScore);
-            
         }
+
+
+        //Determines winner of the 5 rounds
+        if (i === 5 && (playerScore > computerScore)){
+                console.log("You win the game!");
+            } else if (i === 5 && (playerScore < computerScore)){
+                console.log("Computer wins the game!");
+            } else if (i === 5 && (playerScore === computerScore)){
+                console.log("Tie game!")
+            }
         
     </script>
 </body>
