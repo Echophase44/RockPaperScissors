@@ -15,7 +15,6 @@ function computerPlay() {
     return selection;
 }
 
-//Takes inputs and plays a round of R/P/S and returns result, adds to player or computer score
 function playRound(player, computer) {
     if (player === "rock" && computer === "scissors"){
         playerScore++;
@@ -53,22 +52,27 @@ function playRound(player, computer) {
 
 
 
-const playerScorePara = document.querySelector(".displayThis")
-
-
+const playerScorePara = document.querySelector(".playerScore");
+const computerScorePara = document.querySelector(".computerScore");
 const ansRock = document.querySelector('.btn-rock');
+const ansPaper = document.querySelector('.btn-paper');
+const ansScissors = document.querySelector('.btn-scissors');
+
 ansRock.addEventListener("click", () => {
-console.log("rock")
+    playRound("rock", computerPlay());
+    playerScorePara.textContent = `Player: ${playerScore}`;
+    computerScorePara.textContent = `Computer: ${computerScore}`;
 });
 
-const ansPaper = document.querySelector('.btn-paper');
 ansPaper.addEventListener("click", () => {
-    console.log(playRound("paper", computerPlay()));
+    playRound("paper", computerPlay());
     playerScorePara.textContent = `Player: ${playerScore}`;
+    computerScorePara.textContent = `Computer: ${computerScore}`;
               
 });
 
-const ansScissors = document.querySelector('.btn-scissors');
 ansScissors.addEventListener("click", () => {
-    console.log("scissors")
+    playRound("rock", computerPlay());
+    playerScorePara.textContent = `Player: ${playerScore}`;
+    computerScorePara.textContent = `Computer: ${computerScore}`;
 });

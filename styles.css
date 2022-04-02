@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+.scorePanel {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.computerScore, .playerScore {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.playerCard, .computerCard {
+    background-color: #f4f4f4;
+    border-radius: 20px;
+    padding: 20px;
+
+}
