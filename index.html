@@ -7,17 +7,29 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <header>
+        <h2>Rock, Paper, Scissors</h2>
+    </header>
 
+    <div class="btn-group">
+        <button class = "btn-rock">Rock</button>
+        <button class = "btn-paper">Paper</button>
+        <button class = "btn-scissors">Scissors</button>
+    </div>
+
+    <div class = "displayThis">Player: 0</div>
 
 
 
 
     
     <script>
+
+        //////////  The Game  ///////////
+
         let playerScore = 0;
         let computerScore = 0;
         
-        //Returns Rock/Paper/Scissors randomly for the computer
         function computerPlay() {
             let selection = Math.floor(Math.random() * 3) + 1;
             if (selection === 1){
@@ -53,28 +65,43 @@
             } else if (player === computer){
                 return "It's a tie!";
             }
-        }
-        
-        //Plays 5 rounds of R/P/S prompting player for input
-        for (i= 0; i < 5; i++) {
-            playerSelection = window.prompt("Enter your choice: Rock, Paper, or Scissors.");
-            playerSelection = playerSelection.toLowerCase();
-
-            let playGame = playRound(playerSelection, computerPlay());
-            console.log(playGame);
-            console.log("Player: " + playerScore + " Computer: " + computerScore);
-        }
+        };
 
 
         //Determines winner of the 5 rounds
-        if (i === 5 && (playerScore > computerScore)){
-                console.log("You win the game!");
-            } else if (i === 5 && (playerScore < computerScore)){
-                console.log("Computer wins the game!");
-            } else if (i === 5 && (playerScore === computerScore)){
-                console.log("Tie game!")
-            }
+       // if (i === 5 && (playerScore > computerScore)){
+        //        console.log("You win the game!");
+      //      } else if (i === 5 && (playerScore < computerScore)){
+        //        console.log("Computer wins the game!");
+        //    } else if (i === 5 && (playerScore === computerScore)){
+         //       console.log("Tie game!")
+        //    }
+
+    
+    
+
+    const playerScorePara = document.querySelector(".displayThis")
         
+
+    const ansRock = document.querySelector('.btn-rock');
+        ansRock.addEventListener("click", () => {
+        console.log("rock")
+    });
+    
+    const ansPaper = document.querySelector('.btn-paper');
+        ansPaper.addEventListener("click", () => {
+            console.log(playRound("paper", computerPlay()));
+            playerScorePara.textContent = `Player: ${playerScore}`;
+                      
+    });
+
+    const ansScissors = document.querySelector('.btn-scissors');
+        ansScissors.addEventListener("click", () => {
+            console.log("scissors")
+    });
+
+    
+
     </script>
 </body>
 </html>
