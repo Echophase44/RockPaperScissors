@@ -18,56 +18,55 @@ function computerPlay() {
 function playRound(player, computer) {
     if (player === "rock" && computer === "scissors"){
         playerScore++;
-        return "You win, Rock beats Paper!";
+        roundMessage.textContent = "You win, rock beats paper!";
     } else if (player === "paper" && computer === "rock"){
         playerScore++;
-        return "You win, Paper beats Rock!";
+        roundMessage.textContent = "You win, paper beats rock!";
     } else if (player === "scissors" && computer === "paper"){
         playerScore++;
-        return "You win, Scissors beats Paper!";
+        roundMessage.textContent = "You win, scissors beats paper!";
     } else if (computer === "rock" && player === "paper"){
         computerScore++;
-        return "Computer wins, Rock beats paper!";
+        roundMessage.textContent = "Computer wins, rock beats paper!";
     } else if (computer === "paper" && player === "rock"){
         computerScore++;
-        return "Computer wins, Paper beats Rock!";
+        roundMessage.textContent = "Computer wins, paper beats rock!";
     } else if (computer === "scissors" && player === "paper"){
         computerScore++;
-        return "Computer wins, Scissors beats Paper!";
+        roundMessage.textContent = "Computer wins, scissors beats paper!";
     } else if (player === computer){
-        return "It's a tie!";
+        roundMessage.textContent = "It's a tie!";
     }
 };
 
-
-//Determines winner of the 5 rounds
-// if (i === 5 && (playerScore > computerScore)){
-//        console.log("You win the game!");
-//      } else if (i === 5 && (playerScore < computerScore)){
-//        console.log("Computer wins the game!");
-//    } else if (i === 5 && (playerScore === computerScore)){
- //       console.log("Tie game!")
-//    }
-
-
-
+function gameOver(player, computer){
+    if (player === 5){
+        alert("You win the game!");
+    } else if (computer === 5){
+        alert("The computer wins the game!");
+    }
+}
+/////////// UI ///////////
 
 const playerScorePara = document.querySelector(".playerScore");
 const computerScorePara = document.querySelector(".computerScore");
 const ansRock = document.querySelector('.btn-rock');
 const ansPaper = document.querySelector('.btn-paper');
 const ansScissors = document.querySelector('.btn-scissors');
+const roundMessage = document.querySelector('.roundMessage');
 
 ansRock.addEventListener("click", () => {
     playRound("rock", computerPlay());
     playerScorePara.textContent = `Player: ${playerScore}`;
     computerScorePara.textContent = `Computer: ${computerScore}`;
+    gameOver(playerScore, computerScore);
 });
 
 ansPaper.addEventListener("click", () => {
     playRound("paper", computerPlay());
     playerScorePara.textContent = `Player: ${playerScore}`;
     computerScorePara.textContent = `Computer: ${computerScore}`;
+    gameOver(playerScore, computerScore);
               
 });
 
@@ -75,4 +74,6 @@ ansScissors.addEventListener("click", () => {
     playRound("rock", computerPlay());
     playerScorePara.textContent = `Player: ${playerScore}`;
     computerScorePara.textContent = `Computer: ${computerScore}`;
+    gameOver(playerScore, computerScore);
 });
+
